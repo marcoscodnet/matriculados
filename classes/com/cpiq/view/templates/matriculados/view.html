@@ -1,0 +1,97 @@
+<!-- BEGIN:main -->
+<div id="ver">
+    {formulario}
+    <form>
+	<fieldset>
+
+	<div class="item">
+		    
+		    
+		    <label for="{input_fechaUltModificacion}">{fechaUltModificacion_label} :</label>
+		    	    
+		    <input type="text" size="30" value="{fechaUltModificacion_value}" name="{input_fechaUltModificacion}" id="{input_fechaUltModificacion}" readonly="readonly">
+		    
+		    
+		    
+		</div>
+	<div class="item">
+		    
+		    
+		   
+		    <label for="{input_usuario}">{usuario_label} :</label>
+		    
+		    
+		    <input type="text" size="30" value="{usuario_value}" name="{input_usuario}" id="{input_usuario}" readonly="readonly">
+		    
+		</div>
+		
+		</fieldset>
+		
+		</form>
+		
+</div>
+<div class="block">
+<fieldset>
+<legend>{estado_leyenda}</legend>
+<table border="1">
+		<thead>
+			<tr>	
+				
+				<th>{lbl_estado}</th>
+				<th>{lbl_desde}</th>
+				<th>{lbl_hasta}</th>
+				<th>{lbl_motivo}</th>
+				<th>{lbl_ult_modificacion}</th>
+				<th>{lbl_usuario}</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- BEGIN:historicoEstado -->
+			<tr class="grid_row_class" style="cursor: pointer;">
+				
+				<td>{estado}</td>
+				<td>{desde}</td>
+				<td>{hasta}</td>
+				<td>{motivo}</td>
+				<td>{ult_modificacion}</td>
+				<td>{usuario}</td>
+				
+			</tr>
+			<!-- END:historicoEstado -->
+		</tbody>
+	</table>
+</fieldset>
+</div>
+<div class="block">
+<fieldset>
+<legend>{titulos_leyenda}</legend>
+<table border="1">
+		<thead>
+			<tr>	
+				
+				<th>{lbl_matricula}</th>
+				<th>{lbl_tipo_titulo}</th>
+				<th>{lbl_entidad_emisora}</th>
+				<th>{lbl_expedicion}</th>
+				<th>{lbl_matriculacion}</th>
+				<th>{lbl_principal}</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- BEGIN:titulo -->
+			<tr class="grid_row_class" style="cursor: pointer;">
+				
+				<td>{matricula}</td>
+				<td>{tipoTitulo}</td>
+				<td>{entidadEmisora}</td>
+				<td>{fechaExpedicion}</td>
+				<td>{fechaMatriculacion}</td>
+				<td>{esPrincipal}</td>
+				
+			</tr>
+			<!-- END:titulo -->
+		</tbody>
+	</table>
+</fieldset>
+</div>
+<!-- END:main -->

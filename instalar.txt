@@ -1,0 +1,17 @@
+--------------------------------------------------------------------
+Instalaci�n del proyecto mdc
+--------------------------------------------------------------------
+
+1) dependencias
+
+	codnet_core ( codnet_mvc/branches/codnet_core )
+	codnet_secure ( codnet_mvc/branches/codnet_secure )
+	codnet_ui  ( codnet_mvc/trunk/codnet_ui )
+	codnet_ui_smile  ( codnet_mvc/trunk/codnet_ui_smile )
+	codnet_ui_components  ( codnet_mvc/branches/codnet_ui_components )
+	codnet_gestion  ( codnet_mvc/trunk/codnet_gestion )
+
+
+2) base de datos
+	
+	cpiq_matriculados (está en el servidor)

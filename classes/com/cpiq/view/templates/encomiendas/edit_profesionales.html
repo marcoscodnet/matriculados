@@ -1,0 +1,168 @@
+<!-- BEGIN: main -->
+<style>
+#encomienda_profesionales{
+
+}
+#encomienda_profesionales fieldset {
+    background: none repeat scroll 0 0 #EEEEEE;
+    border-radius: 4px 4px 0 0;
+    box-shadow:none;
+    margin-top: 1em;
+    padding: 1.5em;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+#encomienda_profesionales .tblFooters {
+    /*margin-top: -16px;*/
+    background: none;
+    border:none;
+    text-align: center;
+    margin-bottom: -34px;
+    margin-top: -16px;
+}
+#encomienda_profesionales .camposRequeridos {
+    display: none;
+}
+#encomienda_profesionales form fieldset .item {
+    padding: 1px;
+}
+</style>
+
+
+
+<script type="text/javascript">
+
+function before_submit_profesional(){
+
+	wait("#tbody_profesionales");
+}
+
+function remove_profesional( itemOid ){
+
+	before_submit_profesional();
+	soft_load(false, "doAction?action=delete_encomienda_profesional_session&item_oid="+itemOid, "GET", null, show_profesionales, false);
+}
+
+function add_profesional( data ){
+	show_profesionales( data );
+	$("#item_oid").val("");
+	$("#item_oid").blur();
+	//$("#item_oid").focus();
+}
+
+function show_profesionales( data ){
+	
+	var data = $.parseJSON(data);
+	if( data != null && data["error"]!=null){
+		showMessageError( data["error"], true );
+	}
+	
+	if( data != null && data["profesionales"]!=null){
+
+		var profesionales = data["profesionales"];
+		var profesionalColumns = data["profesionalColumns"];
+		var profesionalColumnsAlign = data["profesionalColumnsAlign"];
+		var profesionalColumnsLabels = data["profesionalColumnsLabels"];
+
+		$('#thead_profesionales').find('tr').remove();
+		$("#thead_profesionales").last().append( $('<tr>') );
+		var trHeadProfesional = $('#thead_profesionales').find('tr').last();
+		
+		for( var colIndex=0; colIndex < profesionalColumnsLabels.length;colIndex++){
+
+			var label = profesionalColumnsLabels[colIndex];
+			var align =  profesionalColumnsAlign[colIndex];
+			trHeadProfesional.append($('<th>')
+	                .text( label )
+	                .attr('style', 'text-align:' + align + ';')
+	            );
+			
+		}
+
+		$('#tbody_profesionales').find('tr').remove();
+				
+		for( var index=0; index< profesionales.length;index++){
+
+			var profesional = profesionales[index];
+
+			$("#tbody_profesionales").last().append( $('<tr>') );
+			
+			var trProfesional = $('#tbody_profesionales').find('tr').last();
+			
+			for( var colIndex=0; colIndex < profesionalColumns.length;colIndex++){
+
+				var column = profesionalColumns[colIndex];
+				var align =  profesionalColumnsAlign[colIndex];
+				var valor = profesional[column]; 
+
+				trProfesional.append($('<td>')
+		                .text( valor )
+		                .attr('style', 'text-align:' + align + ';')
+		            );
+				
+			}
+
+
+			trProfesional.append($('<td>')
+					.attr('style', 'text-align:center;')
+					.append($('<href>')
+							.append($('<img>')
+					                .attr('src', '{WEB_PATH}css/smile/images/chk_off.png')
+					                .text('quitar')
+					            )
+					        .attr('href', '#')
+					        .attr('style', 'cursor:pointer;')
+					        .attr('onclick', 'javascript: remove_profesional( encodeURI( \"' + profesional["item_oid"] +  '\"));' )
+			            )
+	            ); 
+
+		}
+		
+	}
+
+	wakeUp("#tbody_profesionales");
+	
+	$("#consejo").val("");		
+	$("#profesional").val("");
+	$("#matricula").val("");
+	$("#profesional").focus();
+	
+	
+}
+
+
+
+</script>
+<div id="encomienda_profesionales">
+<fieldset>
+	<legend>{profesionales_title}</legend>
+<table id="profesionales">
+   	<thead id="thead_profesionales">
+   	<tr>
+   		<!-- BEGIN: profesional_th -->
+   		<th style="text-align: {align};">{profesional_label}</th>
+   		<!-- END: profesional_th -->
+   		<th></th>
+   	</tr>
+   	</thead>
+   	<tbody id="tbody_profesionales">
+   	<!-- BEGIN: profesional -->   	
+   	<tr>
+   		<!-- BEGIN: profesional_data -->	
+   		<td style="text-align: {align};">{data}</td>
+   		<!-- END: profesional_data -->
+   		
+   		<td style="text-align: center;">
+   			<!-- BEGIN:editar_profesional -->
+   			<a href="#"><img src='{WEB_PATH}css/smile/images/chk_off.png' style="cursor:pointer;" onclick="javascript: remove_profesional(encodeURI('{item_oid}'));"></a>
+   			<!-- END:editar_profesional -->
+   		</td>
+   	</tr>
+   	<!-- END: profesional -->
+   	</tbody>
+</table>
+<br />
+{formulario}
+</fieldset>
+    
+</div>
+<!-- END: main -->

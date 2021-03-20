@@ -1,0 +1,17 @@
+<configuration xmlns="http://logging.apache.org/log4php/">
+
+	<appender name="consoleAppender" class="LoggerAppenderConsole">
+		<layout class="LoggerLayoutTTCC" />
+	</appender>
+
+	<appender name="loggerAppenderDailyFile" class="LoggerAppenderDailyFile">
+		<layout class="LoggerLayoutTTCC" />
+		<param name="file" value="/var/www/mdc/cron/logs/file-%s-payment.log" />
+		<param name="datePattern" value="Y-m-d" />
+	</appender>
+
+	<root>
+		<level value="DEBUG" />
+		<appender_ref ref="loggerAppenderDailyFile" />
+	</root>
+</configuration>

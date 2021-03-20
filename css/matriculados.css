@@ -1,0 +1,90 @@
+
+/* tabs */
+ul.tabs li.escritorio a {
+	background-image: url(images/tab-desk.png);
+}
+
+/* tabs */
+ul.tabs li.accounts a {
+	background-image: url(images/tab-accounts.png);
+}
+
+
+/* grilla */
+.rich_option_item_facturar {
+	background: url("images/invoice_18.png") no-repeat scroll 0 5px
+		transparent;
+	width: 18px;
+}
+
+.rich_option_item_facturar span {
+	padding-left: 18px;
+}
+
+.rich_option_item_movimientoCtaCte {
+	background: url("images/invoice_18.png") no-repeat scroll 0 5px
+		transparent;
+	width: 18px;
+}
+
+.rich_option_item_movimientoCtaCte span {
+	padding-left: 18px;
+}
+
+/* MENU */ 
+
+/* {matriculados} */
+ul.panel li.matriculados a {
+	background: url("images/matriculados.png");
+}
+
+/* {tiposTitulo} */
+ul.panel li.tiposTitulo a {
+	background: url("images/tiposTitulo.png");
+}
+
+/* {localidades} */
+ul.panel li.localidades a {
+	background: url("images/localidades.png");
+}
+
+/* {paises} */
+ul.panel li.paises a {
+	background: url("images/paises.png");
+}
+
+/* {tiposDocumento} */
+ul.panel li.tiposDocumento a {
+	background: url("images/tiposDocumento.png");
+}
+
+/* {entidadesEmisora} */
+ul.panel li.entidadesEmisora a {
+	background: url("images/entidadesEmisora.png");
+}
+
+/* {estadoMatriculado} */
+ul.panel li.estadosMatriculado a {
+	background: url("images/estadosMatriculado.png");
+}
+
+/* {encomiendas} */
+ul.panel li.encomiendas a {
+	background: url("images/encomiendas.png");
+}
+
+/* {cuotas} */
+ul.panel li.cuotas a {
+	background: url("images/cuotas.png");
+}
+
+/* {incumbencias} */
+ul.panel li.incumbencias a {
+	background: url("images/incumbencias.png");
+}
+
+
+
+
+
+

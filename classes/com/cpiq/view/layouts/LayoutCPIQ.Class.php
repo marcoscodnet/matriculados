@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * Layout para gestión
+ *
+ * @author bernardo
+ * @since
+ */
+class LayoutCPIQ extends LayoutSmile {
+
+	protected function parseMetaTags($xtpl) {}
+
+	protected function initStyles(){
+		parent::initStyles();
+
+		//$this->addStyle( WEB_PATH . "css/entitygrid/entitygrid.css");
+		$this->addStyle( WEB_PATH . "css/filter/filter.css");
+		$this->addStyle( WEB_PATH . "css/form/form.css");
+		
+		$this->addStyle( WEB_PATH . "css/fancybox/jquery.fancybox.css?v=2.1.4" );
+		
+		$this->addStyle( WEB_PATH . "css/matriculados.css");
+	}
+	 
+	protected function initScripts(){
+		parent::initScripts();
+		 
+		$this->addScript( WEB_PATH . "js/form/form.js" );
+		$this->addScript( WEB_PATH . "js/jquery/jquery.form.js");
+		$this->addScript( WEB_PATH . "js/jquery/jquery.tablednd.0.7.min.js");
+		$this->addScript(WEB_PATH . "js/jquery/jquery.tablescroll.js");
+		$this->addScript(WEB_PATH . "js/matriculados.js");
+		$this->addScript(WEB_PATH . "js/soft.js");
+		//$this->addScript(WEB_PATH . "js/jquery/jquery-1.9.1.js");
+		//$this->addScript(WEB_PATH . "js/jquery/jquery-ui-1.10.2.js");
+		$this->addScript( WEB_PATH . "js/jquery/jquery.mousewheel-3.0.6.pack.js" );
+    	$this->addScript(WEB_PATH . "js/fancybox/jquery.fancybox.js?v=2.1.4");
+	}
+
+
+}

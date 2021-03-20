@@ -1,0 +1,66 @@
+<!-- BEGIN:main -->
+<div id="ver">
+    {formulario}
+    <form>
+	<fieldset>
+
+	<div class="item">
+		    
+		    
+		    <label for="{input_fechaUltModificacion}">{fechaUltModificacion_label} :</label>
+		    	    
+		    <input type="text" size="30" value="{fechaUltModificacion_value}" name="{input_fechaUltModificacion}" id="{input_fechaUltModificacion}" readonly="readonly">
+		    
+		    
+		    
+		</div>
+	<div class="item">
+		    
+		    
+		   
+		    <label for="{input_usuario}">{usuario_label} :</label>
+		    
+		    
+		    <input type="text" size="30" value="{usuario_value}" name="{input_usuario}" id="{input_usuario}" readonly="readonly">
+		    
+		</div>
+		
+		</fieldset>
+		
+		</form>
+		
+</div>
+<div class="block">
+<fieldset>
+<legend>{cuotas_leyenda}</legend>
+<table border="1">
+		<thead>
+			<tr>	
+				
+				
+				<th>{lbl_year}</th>
+				<th>{lbl_importe}</th>
+				
+				<th>{lbl_ult_modificacion}</th>
+				<th>{lbl_usuario}</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- BEGIN:registroCuota -->
+			<tr class="grid_row_class" style="cursor: pointer;">
+				
+				
+				<td>{year}</td>
+				<td>{importe}</td>
+				
+				<td>{ult_modificacion}</td>
+				<td>{usuario}</td>
+				
+			</tr>
+			<!-- END:registroCuota -->
+		</tbody>
+	</table>
+</fieldset>
+</div>
+
+<!-- END:main -->

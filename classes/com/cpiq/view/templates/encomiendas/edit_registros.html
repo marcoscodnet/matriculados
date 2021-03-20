@@ -1,0 +1,167 @@
+<!-- BEGIN: main -->
+<style>
+#encomienda_registros{
+
+}
+#encomienda_registros fieldset {
+    background: none repeat scroll 0 0 #EEEEEE;
+    border-radius: 4px 4px 0 0;
+    box-shadow:none;
+    margin-top: 1em;
+    padding: 1.5em;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+#encomienda_registros .tblFooters {
+    /*margin-top: -16px;*/
+    background: none;
+    border:none;
+    text-align: center;
+    margin-bottom: -34px;
+    margin-top: -16px;
+}
+#encomienda_registros .camposRequeridos {
+    display: none;
+}
+#encomienda_registros form fieldset .item {
+    padding: 1px;
+}
+</style>
+
+
+
+<script type="text/javascript">
+
+
+function before_submit_registro(){
+
+	wait("#tbody_registros");
+}
+
+function remove_registro( itemOid ){
+
+	before_submit_registro();
+	soft_load(false, "doAction?action=delete_encomienda_registro_session&item_oid="+itemOid, "GET", null, show_registros, false);
+}
+
+function add_registro( data ){
+	show_registros( data );
+	$("#item_oid").val("");
+	$("#item_oid").blur();
+	//$("#item_oid").focus();
+}
+
+function show_registros( data ){
+	
+	var data = $.parseJSON(data);
+	if( data != null && data["error"]!=null){
+		showMessageError( data["error"], true );
+	}
+	
+	if( data != null && data["registros"]!=null){
+
+		var registros = data["registros"];
+		var registroColumns = data["registroColumns"];
+		var registroColumnsAlign = data["registroColumnsAlign"];
+		var registroColumnsLabels = data["registroColumnsLabels"];
+
+		$('#thead_registros').find('tr').remove();
+		$("#thead_registros").last().append( $('<tr>') );
+		var trHeadRegistro = $('#thead_registros').find('tr').last();
+		
+		for( var colIndex=0; colIndex < registroColumnsLabels.length;colIndex++){
+
+			var label = registroColumnsLabels[colIndex];
+			var align =  registroColumnsAlign[colIndex];
+			trHeadRegistro.append($('<th>')
+	                .text( label )
+	                .attr('style', 'text-align:' + align + ';')
+	            );
+			
+		}
+
+		$('#tbody_registros').find('tr').remove();
+				
+		for( var index=0; index< registros.length;index++){
+
+			var registro = registros[index];
+
+			$("#tbody_registros").last().append( $('<tr>') );
+			
+			var trRegistro = $('#tbody_registros').find('tr').last();
+			
+			for( var colIndex=0; colIndex < registroColumns.length;colIndex++){
+
+				var column = registroColumns[colIndex];
+				var align =  registroColumnsAlign[colIndex];
+				var valor = registro[column]; 
+
+				trRegistro.append($('<td>')
+		                .text( valor )
+		                .attr('style', 'text-align:' + align + ';')
+		            );
+				
+			}
+
+
+			trRegistro.append($('<td>')
+					.attr('style', 'text-align:center;')
+					.append($('<href>')
+							.append($('<img>')
+					                .attr('src', '{WEB_PATH}css/smile/images/chk_off.png')
+					                .text('quitar')
+					            )
+					        .attr('href', '#')
+					        .attr('style', 'cursor:pointer;')
+					        .attr('onclick', 'javascript: remove_registro( encodeURI( \"' + registro["item_oid"] +  '\"));' )
+			            )
+	            ); 
+
+		}
+		
+	}
+
+	wakeUp("#tbody_registros");
+	
+	$("#registroMatriculado").val("");		
+	$("#registroMatriculado").focus();
+	
+	
+}
+
+
+
+</script>
+<div id="encomienda_registros">
+<fieldset>
+	<legend>{registros_title}</legend>
+<table id="registros">
+   	<thead id="thead_registros">
+   	<tr>
+   		<!-- BEGIN: registro_th -->
+   		<th style="text-align: {align};">{registro_label}</th>
+   		<!-- END: registro_th -->
+   		<th></th>
+   	</tr>
+   	</thead>
+   	<tbody id="tbody_registros">
+   	<!-- BEGIN: registro -->   	
+   	<tr>
+   		<!-- BEGIN: registro_data -->	
+   		<td style="text-align: {align};">{data}</td>
+   		<!-- END: registro_data -->
+   		
+   		<td style="text-align: center;">
+   			<!-- BEGIN:editar_registro -->
+   			<a href="#"><img src='{WEB_PATH}css/smile/images/chk_off.png' style="cursor:pointer;" onclick="javascript: remove_registro(encodeURI('{item_oid}'));"></a>
+   			<!-- END:editar_registro -->
+   		</td>
+   	</tr>
+   	<!-- END: registro -->
+   	</tbody>
+</table>
+<br />
+{formulario}
+</fieldset>
+    
+</div>
+<!-- END: main -->

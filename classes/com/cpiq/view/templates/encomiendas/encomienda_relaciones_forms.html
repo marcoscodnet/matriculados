@@ -1,0 +1,37 @@
+<!-- BEGIN: main -->
+<style>
+</style>
+
+
+
+<script type="text/javascript">
+
+$(function() {
+
+	$( "#tabs" ).tabs();
+});
+
+</script>
+
+
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-1">{profesionales_tab}</a></li>
+		<li><a href="#tabs-2">{registros_tab}</a></li>
+		<li><a href="#tabs-3">{especialidades_tab}</a></li>
+	</ul>
+	
+	<div id="tabs-1" style="position:relative;">
+		{profesionales}
+	</div>
+	
+	<div id="tabs-2" style="position:relative;">
+		{registros}
+	</div>
+	
+	<div id="tabs-3" style="position:relative;">
+		{especialidades}
+	</div>
+</div>
+
+<!-- END: main -->

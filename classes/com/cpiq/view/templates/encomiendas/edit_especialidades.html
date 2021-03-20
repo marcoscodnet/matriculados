@@ -1,0 +1,166 @@
+<!-- BEGIN: main -->
+<style>
+#encomienda_especialidades{
+
+}
+#encomienda_especialidades fieldset {
+    background: none repeat scroll 0 0 #EEEEEE;
+    border-radius: 4px 4px 0 0;
+    box-shadow:none;
+    margin-top: 1em;
+    padding: 1.5em;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+#encomienda_especialidades .tblFooters {
+    /*margin-top: -16px;*/
+    background: none;
+    border:none;
+    text-align: center;
+    margin-bottom: -34px;
+    margin-top: -16px;
+}
+#encomienda_especialidades .camposRequeridos {
+    display: none;
+}
+#encomienda_especialidades form fieldset .item {
+    padding: 1px;
+}
+</style>
+
+
+
+<script type="text/javascript">
+
+function before_submit_especialidad(){
+
+	wait("#tbody_especialidades");
+}
+
+function remove_especialidad( itemOid ){
+
+	before_submit_especialidad();
+	soft_load(false, "doAction?action=delete_encomienda_especialidad_session&item_oid="+itemOid, "GET", null, show_especialidades, false);
+}
+
+function add_especialidad( data ){
+	show_especialidades( data );
+	$("#item_oid").val("");
+	$("#item_oid").blur();
+	//$("#item_oid").focus();
+}
+
+function show_especialidades( data ){
+	
+	var data = $.parseJSON(data);
+	if( data != null && data["error"]!=null){
+		showMessageError( data["error"], true );
+	}
+	
+	if( data != null && data["especialidades"]!=null){
+
+		var especialidades = data["especialidades"];
+		var especialidadColumns = data["especialidadColumns"];
+		var especialidadColumnsAlign = data["especialidadColumnsAlign"];
+		var especialidadColumnsLabels = data["especialidadColumnsLabels"];
+
+		$('#thead_especialidades').find('tr').remove();
+		$("#thead_especialidades").last().append( $('<tr>') );
+		var trHeadEspecialidad = $('#thead_especialidades').find('tr').last();
+		
+		for( var colIndex=0; colIndex < especialidadColumnsLabels.length;colIndex++){
+
+			var label = especialidadColumnsLabels[colIndex];
+			var align =  especialidadColumnsAlign[colIndex];
+			trHeadEspecialidad.append($('<th>')
+	                .text( label )
+	                .attr('style', 'text-align:' + align + ';')
+	            );
+			
+		}
+
+		$('#tbody_especialidades').find('tr').remove();
+				
+		for( var index=0; index< especialidades.length;index++){
+
+			var especialidad = especialidades[index];
+
+			$("#tbody_especialidades").last().append( $('<tr>') );
+			
+			var trEspecialidad = $('#tbody_especialidades').find('tr').last();
+			
+			for( var colIndex=0; colIndex < especialidadColumns.length;colIndex++){
+
+				var column = especialidadColumns[colIndex];
+				var align =  especialidadColumnsAlign[colIndex];
+				var valor = especialidad[column]; 
+
+				trEspecialidad.append($('<td>')
+		                .text( valor )
+		                .attr('style', 'text-align:' + align + ';')
+		            );
+				
+			}
+
+
+			trEspecialidad.append($('<td>')
+					.attr('style', 'text-align:center;')
+					.append($('<href>')
+							.append($('<img>')
+					                .attr('src', '{WEB_PATH}css/smile/images/chk_off.png')
+					                .text('quitar')
+					            )
+					        .attr('href', '#')
+					        .attr('style', 'cursor:pointer;')
+					        .attr('onclick', 'javascript: remove_especialidad( encodeURI( \"' + especialidad["item_oid"] +  '\"));' )
+			            )
+	            ); 
+
+		}
+		
+	}
+
+	wakeUp("#tbody_especialidades");
+	
+	$("#titulo").val("");		
+	$("#titulo").focus();
+	
+	
+}
+
+
+
+</script>
+<div id="encomienda_especialidades">
+<fieldset>
+	<legend>{especialidades_title}</legend>
+<table id="especialidades">
+   	<thead id="thead_especialidades">
+   	<tr>
+   		<!-- BEGIN: especialidad_th -->
+   		<th style="text-align: {align};">{especialidad_label}</th>
+   		<!-- END: especialidad_th -->
+   		<th></th>
+   	</tr>
+   	</thead>
+   	<tbody id="tbody_especialidades">
+   	<!-- BEGIN: especialidad -->   	
+   	<tr>
+   		<!-- BEGIN: especialidad_data -->	
+   		<td style="text-align: {align};">{data}</td>
+   		<!-- END: especialidad_data -->
+   		
+   		<td style="text-align: center;">
+   			<!-- BEGIN:editar_especialidad -->
+   			<a href="#"><img src='{WEB_PATH}css/smile/images/chk_off.png' style="cursor:pointer;" onclick="javascript: remove_especialidad(encodeURI('{item_oid}'));"></a>
+   			<!-- END:editar_especialidad -->
+   		</td>
+   	</tr>
+   	<!-- END: especialidad -->
+   	</tbody>
+</table>
+<br />
+{formulario}
+</fieldset>
+    
+</div>
+<!-- END: main -->

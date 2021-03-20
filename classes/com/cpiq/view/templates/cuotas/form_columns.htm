@@ -1,0 +1,184 @@
+<!-- BEGIN: main -->
+<style>
+.fValidator-a {
+    color: #708090;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: bold;
+}
+</style>
+<script type="text/javascript">
+
+function formatDec(valor, decimales) {
+	var parts = String(valor).split(".");
+	parts[1] = String(parts[1]).substring(0, decimales);
+	// parts[1] = Number(parts[1]) * Math.pow(10, -(decimales - 1)); //POTENCIA
+	// parts[1] = String(Math.floor(parts[1])); //REDODEA HACIA ABAJO
+	return parseFloat(parts.join("."));
+}
+
+
+
+function sumar_total(){
+	$("#{form_id}_input_submit_ajax").show();
+	
+	
+	var total = 0;
+	
+	//iterate through each textboxes and add the values
+	$(".txt").each(function() {
+
+		//add only if the value is number
+		if(!isNaN(this.value) && this.value.length!=0) {
+			total += parseFloat(this.value);
+		}
+
+	});
+	
+	
+	$('#spanTotal').text('$'+formatDec(total));
+	
+}
+
+
+$(document).ready( sumar_total );
+
+
+
+
+
+
+$(function() {
+
+        $("#{form_id}").submit(function(e) {
+        	
+        	if( $("#{form_id}_input_submit").length > 0){
+        		$submit = $("#{form_id}_input_submit");
+            	$restoreOpacity = $submit.css("opacity");	
+        	}
+        	
+        	
+        	 e.preventDefault();
+			 $('input').removeAttr('disabled');
+        	 
+        	 if( {useAjaxSubmit} ) {
+
+                	submitAjaxForm('{form_id}', '{action}', {onSuccessCallback},{beforeSubmit});
+                	
+                	return false;
+             }else{
+            	 
+            	
+         		$submit.css({"opacity":$restoreOpacity});
+         		$submit.removeAttr( "disabled" );
+             }
+        	 
+        	 
+        	 
+        });
+	
+            								
+});
+
+
+
+
+function successDefault_{form_id}(data ){
+	try {
+		
+		 jsondata = $.parseJSON(data);
+		
+		 if( jsondata != null && jsondata["error"]!=null){
+				showMessageError( jsondata["error"], false );
+				
+			}
+
+		 if( jsondata != null && jsondata["info"]!=null){
+				//showMessageInfo( jsondata["info"], false );
+				//$('#{form_id}').reset();
+				
+			  
+			 var ventanaNueva = window.open('{WEB_PATH}pdfs/'+jsondata["info"]);
+			  ventanaNueva.focus();
+			}
+		 {onCancel};			
+	} catch (e) {
+	   return;
+	}
+	  
+}
+
+
+
+</script>
+
+<form <!-- BEGIN: property --> {name}="{value}" <!-- END: property --> >
+<a name="ancla" id="ancla"></a>
+	<!-- BEGIN: fieldset -->
+		<fieldset>
+	    <!-- BEGIN: legend -->
+		<legend>{value}</legend>
+		<!-- END: legend -->
+		<!-- BEGIN: pagarCuota_matriculado_oid -->
+					<div class="item" style="min-width: {minWidth};display:{display}"  id="item-div-{input_name}">
+					    
+					    <!-- BEGIN: label -->
+					    <label for="{input_name}">{value} *:</label>
+					    <!-- END: label -->
+					    <!-- BEGIN: input -->
+					    {input}
+					    <!-- END: input -->
+					</div>
+		<!-- END: pagarCuota_matriculado_oid -->
+		
+		
+			 
+			 
+          	
+        {ds_contenido}
+        
+        
+        <table style="width:100%; border-style: solid; border-width: 1px;  border-color: #666;margin-bottom:5px">
+                    <tr style="border-style: solid; border-width: 1px; border-color: #666">
+                        
+                        <td style="background-color: #eee;color:#333; width:80px"><div align="right"><strong>Total: <span id="spanTotal"></span></strong></div></td>
+                    </tr>
+                </table>
+       
+	</fieldset>
+	<!-- END: fieldset -->
+	<!-- BEGIN: field_hidden -->
+	{input_hidden}
+	<!-- END: field_hidden -->
+	
+
+
+	{intoFormCustomHTML}
+</form>
+
+{customHTML}
+
+<!-- BEGIN: buttons -->
+<form id="buttons{inputId}">
+	<fieldset class="tblFooters">
+	
+		<!-- BEGIN: submit -->
+		<input type="button" value="{lbl_submit}" id="{form_id}_input_submit" onclick="javascript:submitForm('{form_id}');">
+		<!-- END: submit -->
+		
+		<!-- BEGIN: submit_ajax -->
+		<input type="button" value="{lbl_button}" id="{form_id}_input_submit_ajax" onclick="javascript: submitForm('{form_id}');">
+		<!-- END: submit_ajax -->
+		
+		<!-- BEGIN: button -->
+		<input type="button" value="{lbl_button}" id="{form_id}_input_button_{i}" onclick="javascript: {function}; ">
+		<!-- END: button -->
+	
+		<!-- BEGIN: cancel -->
+		<input type="button" value="{lbl_cancel}" id="{form_id}_input_cancel" onclick="javascript: {function};">
+		<!-- END: cancel -->
+			
+	</fieldset>
+</form>	
+<!-- END: buttons -->
+<!-- END: main -->

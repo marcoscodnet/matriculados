@@ -1,0 +1,942 @@
+<?xml version='1.0' standalone='yes'?>
+<navegation>
+
+	<!-- ********************************* -->
+	<!-- cdt_core -->
+	<!-- ********************************* -->
+
+	<!-- pagina no encontrada -->
+	<action name='page_not_found' class='CdtPageNotFoundAction' />
+
+	<!-- acceso denegado -->
+	<action name='access_denied' class='CdtAccessDeniedAction' />
+
+	<!-- pagina de error -->
+	<action name='error' class='CdtErrorAction' />
+
+	<!-- forwards -->
+	<forward name='page_not_found' url='doAction?action=page_not_fount' />
+	<forward name='access_denied' url='doAction?action=access_denied' />
+	<forward name='error' url='doAction?action=error' />
+
+	<!-- filter name="auditory" class="CdtAuditFilter" urlPattern="/"/ -->
+
+	<!-- ********************************* -->
+	<!-- cdt_secure -->
+	<!-- ********************************* -->
+
+	<filter name="security" class="CdtSecureFilter" urlPattern="/"/>
+
+	<!-- inicio y login -->
+	<action name='login_init' class='CdtLoginInitAction' />
+	<action name='login' class='CPIQLoginAction' />
+
+	<forward name='login_success' url='doAction?action=home' />
+	<forward name='login_error' url='doAction?action=login_init' />
+
+	<action name='home' class='SmilePanelAction' currentMenuGroup='' />
+	<action name='exit' class='CPIQExitAction' />
+	<forward name='exit_success' url='doAction?action=login_init' />
+
+	<!-- registracion -->
+	<action name='add_registro_chequear' class='AddRegistroChequearAction' />
+	<action name='signup_init' class='CdtSignupInitAction' />
+	<action name='signup' class='CPIQSignupAction' />
+	<action name='signup_success' class='CdtSignupSuccessAction' />
+	<action name='activate_registration' class='ActivateCPIQRegistrationAction' />
+	<action name='activate_registration_success' class='ActivateCdtRegistrationSuccessAction' />
+	<action name='terms_conditions' class='CdtTermsAndConditionsAction' />
+
+	<forward name='signup_error' url='doAction?action=signup_init' />
+	<forward name='signup_success' url='doAction?action=signup_success' />
+	<forward name='activate_registration_error' url='doAction?action=error' />
+	<forward name='activate_registration_success' url='doAction?action=activate_registration_success' />
+
+	<!-- solicitud de nueva contraseña -->
+	<action name='forgot_password_init' class='CdtForgotPasswordInitAction' />
+	<action name='forgot_password' class='CPIQForgotPasswordAction' />
+	<action name='forgot_password_success' class='CdtForgotPasswordSuccessAction' />
+
+	<forward name='forgot_password_error' url='doAction?action=forgot_password_init' />
+	<forward name='forgot_password_success' url='doAction?action=forgot_password_success' />
+
+	<!-- CdtActionFunctions -->
+	<action name='list_cdtactionfunctions' class='ListCdtActionFunctionsAction'
+		currentMenuGroup='1' />
+	<action name='add_cdtactionfunction' class='AddCdtActionFunctionAction' />
+	<action name='add_cdtactionfunction_init' class='AddCdtActionFunctionInitAction'
+		currentMenuGroup='1' />
+	<action name='update_cdtactionfunction' class='UpdateCdtActionFunctionAction' />
+	<action name='update_cdtactionfunction_init' class='UpdateCdtActionFunctionInitAction' />
+	<action name='view_cdtactionfunction' class='ViewCdtActionFunctionAction' />
+	<action name='delete_cdtactionfunction' class='DeleteCdtActionFunctionAction' />
+
+	<forward name='add_cdtactionfunction_success' url='doAction?action=list_cdtactionfunctions' />
+	<forward name='add_cdtactionfunction_error' url='doAction?action=add_cdtactionfunction_init' />
+	<forward name='update_cdtactionfunction_success' url='doAction?action=list_cdtactionfunctions' />
+	<forward name='update_cdtactionfunction_error' url='doAction?action=add_cdtactionfunction_init' />
+	<forward name='delete_cdtactionfunction_success' url='doAction?action=list_cdtactionfunctions' />
+	<forward name='delete_cdtactionfunction_error' url="doAction?action=list_cdtactionfunctions" />
+	<forward name='list_cdtactionfunction_error' url='doAction?action=list_cdtactionfunctions' />
+
+
+	<!-- CdtFunctions -->
+	<action name='list_cdtfunctions' class='ListCdtFunctionsAction'
+		currentMenuGroup='1' />
+	<action name='add_cdtfunction' class='AddCdtFunctionAction' />
+	<action name='add_cdtfunction_init' class='AddCdtFunctionInitAction' />
+	<action name='update_cdtfunction' class='UpdateCdtFunctionAction' />
+	<action name='update_cdtfunction_init' class='UpdateCdtFunctionInitAction' />
+	<action name='view_cdtfunction' class='ViewCdtFunctionAction' />
+	<action name='delete_cdtfunction' class='DeleteCdtFunctionAction' />
+
+	<forward name='add_cdtfunction_success' url='doAction?action=list_cdtfunctions' />
+	<forward name='add_cdtfunction_error' url='doAction?action=add_cdtfunction_init' />
+	<forward name='update_cdtfunction_success' url='doAction?action=list_cdtfunctions' />
+	<forward name='update_cdtfunction_error' url='doAction?action=add_cdtfunction_init' />
+	<forward name='delete_cdtfunction_success' url='doAction?action=list_cdtfunctions' />
+	<forward name='delete_cdtfunction_error' url='doAction?action=list_cdtfunctions' />
+	<forward name='list_cdtfunction_error' url='doAction?action=list_cdtfunctions' />
+
+
+	<!-- CdtMenuGroups -->
+	<action name='list_cdtmenugroups' class='ListCdtMenuGroupsAction'
+		currentMenuGroup='1' />
+	<action name='add_cdtmenugroup' class='AddCdtMenuGroupAction' />
+	<action name='add_cdtmenugroup_init' class='AddCdtMenuGroupInitAction' />
+	<action name='update_cdtmenugroup' class='UpdateCdtMenuGroupAction' />
+	<action name='update_cdtmenugroup_init' class='UpdateCdtMenuGroupInitAction' />
+	<action name='view_cdtmenugroup' class='ViewCdtMenuGroupAction' />
+	<action name='delete_cdtmenugroup' class='DeleteCdtMenuGroupAction' />
+
+	<forward name='add_cdtmenugroup_success' url='doAction?action=list_cdtmenugroups' />
+	<forward name='add_cdtmenugroup_error' url='doAction?action=add_cdtmenugroup_init' />
+	<forward name='update_cdtmenugroup_success' url='doAction?action=list_cdtmenugroups' />
+	<forward name='update_cdtmenugroup_error' url='doAction?action=add_cdtmenugroup_init' />
+	<forward name='delete_cdtmenugroup_success' url='doAction?action=list_cdtmenugroups' />
+	<forward name='delete_cdtmenugroup_error' url='doAction?action=list_cdtmenugroups' />
+	<forward name='list_cdtmenugroup_error' url='doAction?action=list_cdtmenugroups' />
+
+
+	<!-- CdtMenuOptions -->
+	<action name='list_cdtmenuoptions' class='ListCdtMenuOptionsAction'
+		currentMenuGroup='1' />
+	<action name='add_cdtmenuoption' class='AddCdtMenuOptionAction' />
+	<action name='add_cdtmenuoption_init' class='AddCdtMenuOptionInitAction' />
+	<action name='update_cdtmenuoption' class='UpdateCdtMenuOptionAction' />
+	<action name='update_cdtmenuoption_init' class='UpdateCdtMenuOptionInitAction' />
+	<action name='view_cdtmenuoption' class='ViewCdtMenuOptionAction' />
+	<action name='delete_cdtmenuoption' class='DeleteCdtMenuOptionAction' />
+
+	<forward name='add_cdtmenuoption_success' url='doAction?action=list_cdtmenuoptions' />
+	<forward name='add_cdtmenuoption_error' url='doAction?action=add_cdtmenuoption_init' />
+	<forward name='update_cdtmenuoption_success' url='doAction?action=list_cdtmenuoptions' />
+	<forward name='update_cdtmenuoption_error' url='doAction?action=add_cdtmenuoption_init' />
+	<forward name='delete_cdtmenuoption_success' url='doAction?action=list_cdtmenuoptions' />
+	<forward name='delete_cdtmenuoption_error' url='doAction?action=list_cdtmenuoptions' />
+	<forward name='list_cdtmenuoption_error' url='doAction?action=list_cdtmenuoptions' />
+
+
+	<!-- CdtRegistrations -->
+	<action name='list_cdtregistrations' class='ListCdtRegistrationsAction'
+		currentMenuGroup='1' />
+	<action name='add_cdtregistration' class='AddCdtRegistrationAction' />
+	<action name='add_cdtregistration_init' class='AddCdtRegistrationInitAction' />
+	<action name='update_cdtregistration' class='UpdateCdtRegistrationAction' />
+	<action name='update_cdtregistration_init' class='UpdateCdtRegistrationInitAction' />
+	<action name='view_cdtregistration' class='ViewCdtRegistrationAction' />
+	<action name='delete_cdtregistration' class='DeleteCdtRegistrationAction' />
+
+	<forward name='add_cdtregistration_success' url='doAction?action=list_cdtregistrations' />
+	<forward name='add_cdtregistration_error' url='doAction?action=add_cdtregistration_init' />
+	<forward name='update_cdtregistration_success' url='doAction?action=list_cdtregistrations' />
+	<forward name='update_cdtregistration_error' url='doAction?action=add_cdtregistration_init' />
+	<forward name='delete_cdtregistration_success' url='doAction?action=list_cdtregistrations' />
+	<forward name='delete_cdtregistration_error' url='doAction?action=list_cdtregistrations' />
+	<forward name='list_cdtregistration_error' url='doAction?action=list_cdtregistrations' />
+
+
+	<!-- CdtUsers -->
+	<action name='list_cdtusers' class='ListCdtUsersAction'
+		currentMenuGroup='1' />
+	<action name='add_cdtuser' class='AddCdtUserAction' />
+	<action name='add_cdtuser_init' class='AddCdtUserInitAction' />
+	<action name='update_cdtuser' class='UpdateCdtUserAction' />
+	<action name='update_cdtuser_init' class='UpdateCdtUserInitAction' />
+	<action name='view_cdtuser' class='ViewCdtUserAction' />
+	<action name='delete_cdtuser' class='DeleteCdtUserAction' />
+	<action name='edit_cdtuserprofile' class='EditUserProfileAction' />
+	<action name='edit_cdtuserprofile_init' class='EditUserProfileInitAction' />
+	<action name='view_new_cdtuser' class='ViewNewCdtUserAction' />
+	<action name='unblock_cdtuser' class='UnblockCdtUserAction' />
+
+	<forward name='add_cdtuser_success' url='doAction?action=view_new_cdtuser' />
+	<forward name='add_cdtuser_error' url='doAction?action=add_cdtuser_init' />
+	<forward name='update_cdtuser_success' url='doAction?action=list_cdtusers' />
+	<forward name='update_cdtuser_error' url='doAction?action=update_cdtuser_init' />
+	<forward name='delete_cdtuser_success' url='doAction?action=list_cdtusers' />
+	<forward name='delete_cdtuser_error' url='doAction?action=list_cdtusers' />
+	<forward name='list_cdtuser_error' url='doAction?action=home' />
+	<forward name='edit_cdtuserprofile_success' url='doAction?action=home' />
+	<forward name='edit_cdtuserprofile_error' url='doAction?action=edit_cdtuserprofile_init' />
+	<forward name='unblock_cdtuser_success' url='doAction?action=list_cdtusers' />
+	<forward name='unblock_cdtuser_error' url='doAction?action=list_cdtusers' />
+
+	<!-- CdtUserGroups -->
+	<action name='list_cdtusergroups' class='ListCdtUserGroupsAction'
+		currentMenuGroup='1' />
+	<action name='add_cdtusergroup' class='AddCdtUserGroupAction' />
+	<action name='add_cdtusergroup_init' class='AddCdtUserGroupInitAction' />
+	<action name='update_cdtusergroup' class='UpdateCdtUserGroupAction' />
+	<action name='update_cdtusergroup_init' class='UpdateCdtUserGroupInitAction' />
+	<action name='view_cdtusergroup' class='ViewCdtUserGroupAction' />
+	<action name='delete_cdtusergroup' class='DeleteCdtUserGroupAction' />
+
+	<forward name='add_cdtusergroup_success' url='doAction?action=list_cdtusergroups' />
+	<forward name='add_cdtusergroup_error' url='doAction?action=add_cdtusergroup_init' />
+	<forward name='update_cdtusergroup_success' url='doAction?action=list_cdtusergroups' />
+	<forward name='update_cdtusergroup_error' url='doAction?action=add_cdtusergroup_init' />
+	<forward name='delete_cdtusergroup_success' url='doAction?action=list_cdtusergroups' />
+	<forward name='delete_cdtusergroup_error' url='doAction?action=list_cdtusergroups' />
+	<forward name='list_cdtusergroup_error' url='doAction?action=list_cdtusergroups' />
+
+
+	<!-- CdtUserGroupFunctions -->
+	<action name='list_cdtusergroupfunctions' class='ListCdtUserGroupFunctionsAction'
+		currentMenuGroup='1' />
+	<action name='add_cdtusergroupfunction' class='AddCdtUserGroupFunctionAction' />
+	<action name='add_cdtusergroupfunction_init' class='AddCdtUserGroupFunctionInitAction' />
+	<action name='update_cdtusergroupfunction' class='UpdateCdtUserGroupFunctionAction' />
+	<action name='update_cdtusergroupfunction_init' class='UpdateCdtUserGroupFunctionInitAction' />
+	<action name='view_cdtusergroupfunction' class='ViewCdtUserGroupFunctionAction' />
+	<action name='delete_cdtusergroupfunction' class='DeleteCdtUserGroupFunctionAction' />
+
+	<action name='assign_usergroup_functions' class='AssignUserGroupFunctionsAction' />
+	<action name='assign_usergroup_functions_init' class='AssignUserGroupFunctionsInitAction' />
+
+	<forward name='add_cdtusergroupfunction_success' url='doAction?action=list_cdtusergroupfunctions' />
+	<forward name='add_cdtusergroupfunction_error' url='doAction?action=add_cdtusergroupfunction_init' />
+	<forward name='update_cdtusergroupfunction_success' url='doAction?action=list_cdtusergroupfunctions' />
+	<forward name='update_cdtusergroupfunction_error' url='doAction?action=add_cdtusergroupfunction_init' />
+	<forward name='delete_cdtusergroupfunction_success' url='doAction?action=list_cdtusergroupfunctions' />
+	<forward name='delete_cdtusergroupfunction_error' url='doAction?action=list_cdtusergroupfunctions' />
+	<forward name='list_cdtusergroupfunction_error' url='doAction?action=list_cdtusergroupfunctions' />
+	<forward name='assign_usergroup_functions_error' url='doAction?action=assign_usergroup_functions_init' />
+	<forward name='assign_usergroup_functions_success' url='doAction?action=list_cdtusergroups' />
+
+	<!-- ********************************* -->
+	<!-- cdt_ui_smile -->
+	<!-- ********************************* -->
+
+	<!-- panel de control -->
+	<action name='panel_control' class='SmilePanelAction' />
+
+	<!-- ********************************* -->
+	<!-- components -->
+	<!-- ********************************* -->
+	<action name='cmp_autocomplete' class='CMPAutocompleteAction' />
+	<action name='cmp_findobject' class='CMPFindObjectAction' />
+	<action name='cmp_findpopup' class='CMPFindPopupAction' />
+	<action name='cmp_grid' class='CMPGridAction' />
+	<action name='cmp_grid_pdf' class='CMPGridExportPdfAction' />
+	<action name='cmp_grid_xls' class='CMPGridExportXlsAction' />
+	<action name='cmp_entityautocomplete' class='CMPEntityAutocompleteAction' />
+	<action name='cmp_generic' class='CMPComponentAction' />
+	<action name='cmp_entitygrid' class='CMPEntityGridAction' />
+
+	<action name='cmp_findentity_by_code' class='CMPFindEntityByCodeAction' />
+	<action name='cmp_findentity_popup' class='CMPFindEntityPopupAction' />
+
+	<!-- ********************************* -->
+	<!-- cpiq -->
+	<!-- ********************************* -->
+
+
+	<!-- tipos de título -->
+
+	<action name='list_tiposTitulo' class='ListTiposTituloAction'
+		currentMenuGroup='9' />
+
+	<action name='add_tipoTitulo' class='AddTipoTituloAction' />
+	<action name='add_tipoTitulo_init' class='AddTipoTituloInitAction'
+		currentMenuGroup='9' />
+		
+	<action name='add_tipoTitulo_popup_init' class='AddTipoTituloPopupInitAction' />
+		
+	<action name='update_tipoTitulo' class='UpdateTipoTituloAction' />
+	<action name='update_tipoTitulo_init' class='UpdateTipoTituloInitAction'
+		currentMenuGroup='9' />
+	<action name='view_tipoTitulo' class='ViewTipoTituloAction' />
+	<action name='delete_tipoTitulo' class='DeleteTipoTituloAction' />
+
+	<forward name='add_tipoTitulo_success' url='doAction?action=list_tiposTitulo' />
+	<forward name='add_tipoTitulo_error' url='doAction?action=add_tipoTitulo_init' />
+	<forward name='update_tipoTitulo_success' url='doAction?action=list_tiposTitulo' />
+	<forward name='update_tipoTitulo_error' url='doAction?action=list_tiposTitulo' />
+	<forward name='delete_tipoTitulo_success' url='doAction?action=list_tiposTitulo' />
+	<forward name='delete_tipoTitulo_error' url='doAction?action=list_tiposTitulo' />
+	<forward name='list_tipoTitulo_error' url='doAction?action=list_tiposTitulo' />
+
+	<!-- tipos de documento -->
+
+	<action name='list_tiposDocumento' class='ListTiposDocumentoAction'
+		currentMenuGroup='10' />
+
+	<action name='add_tipoDocumento' class='AddTipoDocumentoAction'
+		currentMenuGroup='10' />
+	<action name='add_tipoDocumento_init' class='AddTipoDocumentoInitAction'
+		currentMenuGroup='10' />
+	<action name='update_tipoDocumento' class='UpdateTipoDocumentoAction' />
+	<action name='update_tipoDocumento_init' class='UpdateTipoDocumentoInitAction'
+		currentMenuGroup='10' />
+	<action name='view_tipoDocumento' class='ViewTipoDocumentoAction' />
+	<action name='delete_tipoDocumento' class='DeleteTipoDocumentoAction' />
+
+	<forward name='add_tipoDocumento_success' url='doAction?action=list_tiposDocumento' />
+	<forward name='add_tipoDocumento_error' url='doAction?action=add_tipoDocumento_init' />
+	<forward name='update_tipoDocumento_success' url='doAction?action=list_tiposDocumento' />
+	<forward name='update_tipoDocumento_error' url='doAction?action=list_tiposDocumento' />
+	<forward name='delete_tipoDocumento_success' url='doAction?action=list_tiposDocumento' />
+	<forward name='delete_tipoDocumento_error' url='doAction?action=list_tiposDocumento' />
+	<forward name='list_tipoDocumento_error' url='doAction?action=list_tiposDocumento' />
+
+
+	<!-- matriculados -->
+
+	<action name='list_matriculados' class='ListMatriculadosAction'
+		currentMenuGroup='9' />
+
+	<action name='add_matriculado' class='AddMatriculadoAction' />
+	<action name='add_matriculado_init' class='AddMatriculadoInitAction'
+		currentMenuGroup='9' />
+		
+	<action name='add_matriculado_add_titulo' class='AddMatriculadoAddTituloAction' />
+	<action name='add_matriculado_add_titulo_init' class='AddMatriculadoAddTituloInitAction'
+		currentMenuGroup='9' />
+		
+	<action name='update_matriculado' class='UpdateMatriculadoAction' />
+	<action name='update_matriculado_init' class='UpdateMatriculadoInitAction'
+		currentMenuGroup='9' />
+	<action name='view_matriculado' class='ViewMatriculadoAction' currentMenuGroup='9' />
+	<action name='delete_matriculado' class='DeleteMatriculadoAction' />
+
+	<forward name='add_matriculado_success' url='doAction?action=list_matriculados' />
+	<forward name='add_matriculado_error' url='doAction?action=add_matriculado_init' />
+	<forward name='update_matriculado_success' url='doAction?action=list_matriculados' />
+	<forward name='update_matriculado_error' url='doAction?action=list_matriculados' />
+	<forward name='delete_matriculado_success' url='doAction?action=list_matriculados' />
+	<forward name='delete_matriculado_error' url='doAction?action=list_matriculados' />
+	<forward name='list_matriculado_error' url='doAction?action=list_matriculados' />
+
+	<!-- localidades -->
+
+	<action name='list_localidades' class='ListLocalidadesAction'
+		currentMenuGroup='10' />
+
+	<action name='add_localidad' class='AddLocalidadAction' />
+	<action name='add_localidad_init' class='AddLocalidadInitAction'
+		currentMenuGroup='10' />
+
+	<action name='update_localidad' class='UpdateLocalidadAction' />
+	<action name='update_localidad_init' class='UpdateLocalidadInitAction'
+		currentMenuGroup='10' />
+
+	<action name='add_localidad_popup_init' class='AddLocalidadPopupInitAction' />
+
+	<action name='view_localidad' class='ViewLocalidadAction' />
+	<action name='delete_localidad' class='DeleteLocalidadAction' />
+
+	<forward name='add_localidad_success' url='doAction?action=list_localidades' />
+	<forward name='add_localidad_error' url='doAction?action=add_localidad_init' />
+	<forward name='update_localidad_success' url='doAction?action=list_localidades' />
+	<forward name='update_localidad_error' url='doAction?action=list_localidades' />
+	<forward name='delete_localidad_success' url='doAction?action=list_localidades' />
+	<forward name='delete_localidad_error' url='doAction?action=list_localidades' />
+	<forward name='list_localidad_error' url='doAction?action=list_localidades' />
+
+	<!-- paises -->
+
+	<action name='list_paises' class='ListPaisesAction'
+		currentMenuGroup='10' />
+
+	<action name='add_pais' class='AddPaisAction' />
+	<action name='add_pais_init' class='AddPaisInitAction'
+		currentMenuGroup='10' />
+
+	<action name='update_pais' class='UpdatePaisAction' />
+	<action name='update_pais_init' class='UpdatePaisInitAction'
+		currentMenuGroup='10' />
+
+	<action name='add_pais_popup_init' class='AddPaisPopupInitAction' />
+
+	<action name='view_pais' class='ViewPaisAction' />
+	<action name='delete_pais' class='DeletePaisAction' />
+
+	<forward name='add_pais_success' url='doAction?action=list_paises' />
+	<forward name='add_pais_error' url='doAction?action=add_pais_init' />
+	<forward name='update_pais_success' url='doAction?action=list_paises' />
+	<forward name='update_pais_error' url='doAction?action=list_paises' />
+	<forward name='delete_pais_success' url='doAction?action=list_paises' />
+	<forward name='delete_pais_error' url='doAction?action=list_paises' />
+	<forward name='list_pais_error' url='doAction?action=list_paises' />
+
+	<!-- provincias -->
+
+	<action name='list_provincias' class='ListProvinciasAction'
+		currentMenuGroup='10' />
+
+	<action name='add_provincia' class='AddProvinciaAction' />
+	<action name='add_provincia_init' class='AddProvinciaInitAction'
+		currentMenuGroup='10' />
+
+	<action name='update_provincia' class='UpdateProvinciaAction' />
+	<action name='update_provincia_init' class='UpdateProvinciaInitAction'
+		currentMenuGroup='10' />
+
+	<action name='add_provincia_popup_init' class='AddProvinciaPopupInitAction' />
+
+	<action name='view_provincia' class='ViewProvinciaAction' />
+	<action name='delete_provincia' class='DeleteProvinciaAction' />
+
+	<forward name='add_provincia_success' url='doAction?action=list_provincias' />
+	<forward name='add_provincia_error' url='doAction?action=add_provincia_init' />
+	<forward name='update_provincia_success' url='doAction?action=list_provincias' />
+	<forward name='update_provincia_error' url='doAction?action=list_provincias' />
+	<forward name='delete_provincia_success' url='doAction?action=list_provincias' />
+	<forward name='delete_provincia_error' url='doAction?action=list_provincias' />
+	<forward name='list_provincia_error' url='doAction?action=list_provincias' />
+
+	<!-- entidades emisoras -->
+
+	<action name='list_entidadesEmisora' class='ListEntidadesEmisoraAction'
+		currentMenuGroup='10' />
+
+	<action name='add_entidadEmisora' class='AddEntidadEmisoraAction' />
+	<action name='add_entidadEmisora_init' class='AddEntidadEmisoraInitAction'
+		currentMenuGroup='10' />
+		
+	<action name='add_entidadEmisora_popup_init' class='AddEntidadEmisoraPopupInitAction' />
+	
+	<action name='update_entidadEmisora' class='UpdateEntidadEmisoraAction' />
+	<action name='update_entidadEmisora_init' class='UpdateEntidadEmisoraInitAction'
+		currentMenuGroup='10' />
+	<action name='view_entidadEmisora' class='ViewEntidadEmisoraAction' />
+	<action name='delete_entidadEmisora' class='DeleteEntidadEmisoraAction' />
+
+	<forward name='add_entidadEmisora_success' url='doAction?action=list_entidadesEmisora' />
+	<forward name='add_entidadEmisora_error' url='doAction?action=add_entidadEmisora_init' />
+	<forward name='update_entidadEmisora_success' url='doAction?action=list_entidadesEmisora' />
+	<forward name='update_entidadEmisora_error' url='doAction?action=list_entidadesEmisora' />
+	<forward name='delete_entidadEmisora_success' url='doAction?action=list_entidadesEmisora' />
+	<forward name='delete_entidadEmisora_error' url='doAction?action=list_entidadesEmisora' />
+	<forward name='list_entidadEmisora_error' url='doAction?action=list_entidadesEmisora' />
+
+	<!-- estados -->
+
+	<action name='list_estadosMatriculado' class='ListEstadosMatriculadoAction'
+		currentMenuGroup='10' />
+
+	<action name='add_estadoMatriculado' class='AddEstadoMatriculadoAction' />
+	<action name='add_estadoMatriculado_init' class='AddEstadoMatriculadoInitAction'
+		currentMenuGroup='10' />
+	<action name='update_estadoMatriculado' class='UpdateEstadoMatriculadoAction' />
+	<action name='update_estadoMatriculado_init' class='UpdateEstadoMatriculadoInitAction'
+		currentMenuGroup='10' />
+	<action name='view_estadoMatriculado' class='ViewEstadoMatriculadoAction' />
+	<action name='delete_estadoMatriculado' class='DeleteEstadoMatriculadoAction' />
+
+	<forward name='add_estadoMatriculado_success' url='doAction?action=list_estadosMatriculado' />
+	<forward name='add_estadoMatriculado_error' url='doAction?action=add_estadoMatriculado_init' />
+	<forward name='update_estadoMatriculado_success' url='doAction?action=list_estadosMatriculado' />
+	<forward name='update_estadoMatriculado_error' url='doAction?action=list_estadosMatriculado' />
+	<forward name='delete_estadoMatriculado_success' url='doAction?action=list_estadosMatriculado' />
+	<forward name='delete_estadoMatriculado_error' url='doAction?action=list_estadosMatriculado' />
+	<forward name='list_estadoMatriculado_error' url='doAction?action=list_estadosMatriculado' />
+	
+	<!-- clases títulos -->
+
+	<action name='list_clasesTitulo' class='ListClasesTituloAction'
+		currentMenuGroup='10' />
+
+	<action name='add_claseTitulo' class='AddClaseTituloAction' />
+	<action name='add_claseTitulo_init' class='AddClaseTituloInitAction'
+		currentMenuGroup='10' />
+	<action name='update_claseTitulo' class='UpdateClaseTituloAction' />
+	<action name='update_claseTitulo_init' class='UpdateClaseTituloInitAction'
+		currentMenuGroup='10' />
+	<action name='view_claseTitulo' class='ViewClaseTituloAction' />
+	<action name='delete_claseTitulo' class='DeleteClaseTituloAction' />
+
+	<forward name='add_claseTitulo_success' url='doAction?action=list_clasesTitulo' />
+	<forward name='add_claseTitulo_error' url='doAction?action=add_claseTitulo_init' />
+	<forward name='update_claseTitulo_success' url='doAction?action=list_clasesTitulo' />
+	<forward name='update_claseTitulo_error' url='doAction?action=list_clasesTitulo' />
+	<forward name='delete_claseTitulo_success' url='doAction?action=list_clasesTitulo' />
+	<forward name='delete_claseTitulo_error' url='doAction?action=list_clasesTitulo' />
+	<forward name='list_claseTitulo_error' url='doAction?action=list_clasesTitulo' />
+	
+	<!-- secuencias títulos -->
+
+	<action name='list_secuenciasTitulo' class='ListSecuenciasTituloAction'
+		currentMenuGroup='9' />
+
+	<action name='add_secuenciaTitulo' class='AddSecuenciaTituloAction' />
+	<action name='add_secuenciaTitulo_init' class='AddSecuenciaTituloInitAction'
+		currentMenuGroup='9' />
+		
+	
+	
+	
+	<action name='update_secuenciaTitulo' class='UpdateSecuenciaTituloAction' />
+	<action name='update_secuenciaTitulo_init' class='UpdateSecuenciaTituloInitAction'
+		currentMenuGroup='9' />
+	<action name='view_secuenciaTitulo' class='ViewSecuenciaTituloAction' />
+	<action name='delete_secuenciaTitulo' class='DeleteSecuenciaTituloAction' />
+
+	<forward name='add_secuenciaTitulo_success' url='doAction?action=list_secuenciasTitulo' />
+	<forward name='add_secuenciaTitulo_error' url='doAction?action=add_secuenciaTitulo_init' />
+	<forward name='update_secuenciaTitulo_success' url='doAction?action=list_secuenciasTitulo' />
+	<forward name='update_secuenciaTitulo_error' url='doAction?action=list_secuenciasTitulo' />
+	<forward name='delete_secuenciaTitulo_success' url='doAction?action=list_secuenciasTitulo' />
+	<forward name='delete_secuenciaTitulo_error' url='doAction?action=list_secuenciasTitulo' />
+	<forward name='list_secuenciaTitulo_error' url='doAction?action=list_secuenciasTitulo' />
+	
+	<!-- títulos -->
+
+	<action name='list_titulos' class='ListTitulosAction'
+		currentMenuGroup='9' />
+
+	<action name='add_titulo' class='AddTituloAction' />
+	<action name='add_titulo_init' class='AddTituloInitAction'
+		currentMenuGroup='9' />
+	<action name='update_titulo' class='UpdateTituloAction' />
+	<action name='update_titulo_init' class='UpdateTituloInitAction'
+		currentMenuGroup='9' />
+	<action name='view_titulo' class='ViewTituloAction' />
+	<action name='delete_titulo' class='DeleteTituloAction' />
+
+	<forward name='add_titulo_success' url='doAction?action=list_titulos' />
+	<forward name='add_titulo_error' url='doAction?action=add_titulo_init' />
+	<forward name='update_titulo_success' url='doAction?action=list_titulos' />
+	<forward name='update_titulo_error' url='doAction?action=list_titulos' />
+	<forward name='delete_titulo_success' url='doAction?action=list_titulos' />
+	<forward name='delete_titulo_error' url='doAction?action=list_titulos' />
+	<forward name='list_titulo_error' url='doAction?action=list_titulos' />
+	
+	<!-- historico estado -->
+
+	<action name='list_historicosEstado' class='ListHistoricosEstadoAction'
+		currentMenuGroup='9' />
+		
+	<!-- cuotas -->
+
+	<action name='list_cuotas' class='ListCuotasAction'
+		currentMenuGroup='9' />
+
+	<action name='add_cuota' class='AddCuotaAction' />
+	<action name='add_cuota_init' class='AddCuotaInitAction'
+		currentMenuGroup='9' />
+	<action name='update_cuota' class='UpdateCuotaAction' />
+	<action name='update_cuota_init' class='UpdateCuotaInitAction'
+		currentMenuGroup='9' />
+	<action name='view_cuota' class='ViewCuotaAction' />
+	<action name='delete_cuota' class='DeleteCuotaAction' />
+
+	<forward name='add_cuota_success' url='doAction?action=list_cuotas' />
+	<forward name='add_cuota_error' url='doAction?action=add_cuota_init' />
+	<forward name='update_cuota_success' url='doAction?action=list_cuotas' />
+	<forward name='update_cuota_error' url='doAction?action=list_cuotas' />
+	<forward name='delete_cuota_success' url='doAction?action=list_cuotas' />
+	<forward name='delete_cuota_error' url='doAction?action=list_cuotas' />
+	<forward name='list_cuota_error' url='doAction?action=list_cuotas' />
+	
+	<!-- cuotas generadas -->
+
+	<action name='list_cuotasGenerada' class='ListCuotasGeneradaAction'
+		currentMenuGroup='9' />
+
+	<action name='masiva_cuotasGenerada' class='MasivaCuotasGeneradaAction'
+		currentMenuGroup='9' />
+
+	<action name='add_cuotaGenerada' class='AddCuotaGeneradaAction' />
+	<action name='add_cuotaGenerada_init' class='AddCuotaGeneradaInitAction'
+		currentMenuGroup='9' />
+	<action name='update_cuotaGenerada' class='UpdateCuotaGeneradaAction' />
+	<action name='update_cuotaGenerada_init' class='UpdateCuotaGeneradaInitAction'
+		currentMenuGroup='9' />
+	<action name='view_cuotaGenerada' class='ViewCuotaGeneradaAction' />
+	<action name='delete_cuotaGenerada' class='DeleteCuotaGeneradaAction' />
+
+	<forward name='add_cuotaGenerada_success' url='doAction?action=list_cuotaGeneradasGenerada' />
+	<forward name='add_cuotaGenerada_error' url='doAction?action=add_cuotaGenerada_init' />
+	<forward name='update_cuotaGenerada_success' url='doAction?action=list_cuotaGeneradasGenerada' />
+	<forward name='update_cuotaGenerada_error' url='doAction?action=list_cuotaGeneradasGenerada' />
+	<forward name='delete_cuotaGenerada_success' url='doAction?action=list_cuotaGeneradasGenerada' />
+	<forward name='delete_cuotaGenerada_error' url='doAction?action=list_cuotaGeneradasGenerada' />
+	<forward name='list_cuotaGenerada_error' url='doAction?action=list_cuotaGeneradasGenerada' />
+	
+	<action name='pagar_cuotaGenerada_init' class='PagarCuotaGeneradaInitAction' />
+	<action name='pagar_cuotaGenerada' class='PagarCuotaGeneradaAction' />
+	<forward name='pagar_cuotaGenerada_error' url='doAction?action=cuotaGenerada_error' />
+	
+	<action name='cuotaGenerada_error' class='CuotaGeneradaErrorAction' />
+	<!-- registros -->
+
+	<action name='list_registros' class='ListRegistrosAction'
+		currentMenuGroup='9' />
+
+	<action name='add_registro' class='AddRegistroAction' />
+	<action name='add_registro_init' class='AddRegistroInitAction'
+		currentMenuGroup='9' />
+
+	<action name='update_registro' class='UpdateRegistroAction' />
+	<action name='update_registro_init' class='UpdateRegistroInitAction'
+		currentMenuGroup='9' />
+
+	<action name='add_registro_popup_init' class='AddRegistroPopupInitAction' />
+
+	<action name='view_registro' class='ViewRegistroAction' />
+	<action name='delete_registro' class='DeleteRegistroAction' />
+
+	<forward name='add_registro_success' url='doAction?action=list_registros' />
+	<forward name='add_registro_error' url='doAction?action=add_registro_init' />
+	<forward name='update_registro_success' url='doAction?action=list_registros' />
+	<forward name='update_registro_error' url='doAction?action=list_registros' />
+	<forward name='delete_registro_success' url='doAction?action=list_registros' />
+	<forward name='delete_registro_error' url='doAction?action=list_registros' />
+	<forward name='list_registro_error' url='doAction?action=list_registros' />
+	
+	<!-- registros cuotas -->
+
+	<action name='list_registrosCuota' class='ListRegistrosCuotaAction'
+		currentMenuGroup='9' />
+
+	<action name='add_registroCuota' class='AddRegistroCuotaAction' />
+	<action name='add_registroCuota_init' class='AddRegistroCuotaInitAction'
+		currentMenuGroup='9' />
+
+	<action name='update_registroCuota' class='UpdateRegistroCuotaAction' />
+	<action name='update_registroCuota_init' class='UpdateRegistroCuotaInitAction'
+		currentMenuGroup='9' />
+
+	<action name='add_registroCuota_popup_init' class='AddRegistroCuotaPopupInitAction' />
+
+	<action name='view_registroCuota' class='ViewRegistroCuotaAction' />
+	<action name='delete_registroCuota' class='DeleteRegistroCuotaAction' />
+
+	<forward name='add_registroCuota_success' url='doAction?action=list_registrosCuota' />
+	<forward name='add_registroCuota_error' url='doAction?action=add_registroCuota_init' />
+	<forward name='update_registroCuota_success' url='doAction?action=list_registrosCuota' />
+	<forward name='update_registroCuota_error' url='doAction?action=list_registrosCuota' />
+	<forward name='delete_registroCuota_success' url='doAction?action=list_registrosCuota' />
+	<forward name='delete_registroCuota_error' url='doAction?action=list_registrosCuota' />
+	<forward name='list_registroCuota_error' url='doAction?action=list_registrosCuota' />
+	
+	<!-- registros matriculados -->
+
+	<action name='list_registrosMatriculado' class='ListRegistrosMatriculadoAction'
+		currentMenuGroup='9' />
+
+	<action name='add_registroMatriculado' class='AddRegistroMatriculadoAction' />
+	<action name='add_registroMatriculado_init' class='AddRegistroMatriculadoInitAction'
+		currentMenuGroup='9' />
+
+	<action name='update_registroMatriculado' class='UpdateRegistroMatriculadoAction' />
+	<action name='update_registroMatriculado_init' class='UpdateRegistroMatriculadoInitAction'
+		currentMenuGroup='9' />
+
+	<action name='add_registroMatriculado_popup_init' class='AddRegistroMatriculadoPopupInitAction' />
+
+	<action name='view_registroMatriculado' class='ViewRegistroMatriculadoAction' />
+	<action name='delete_registroMatriculado' class='DeleteRegistroMatriculadoAction' />
+	
+	<!-- registros cuotas matriculados -->
+
+	<action name='list_registrosCuotaMatriculado' class='ListRegistrosCuotaMatriculadoAction'
+		currentMenuGroup='9' />
+
+	<action name='add_registroCuotaMatriculado' class='AddRegistroCuotaMatriculadoAction' />
+	<action name='add_registroCuotaMatriculado_init' class='AddRegistroCuotaMatriculadoInitAction'
+		currentMenuGroup='9' />
+
+	<action name='update_registroCuotaMatriculado' class='UpdateRegistroCuotaMatriculadoAction' />
+	<action name='update_registroCuotaMatriculado_init' class='UpdateRegistroCuotaMatriculadoInitAction'
+		currentMenuGroup='9' />
+
+	<action name='add_registroCuotaMatriculado_popup_init' class='AddRegistroCuotaMatriculadoPopupInitAction' />
+
+	<action name='view_registroCuotaMatriculado' class='ViewRegistroCuotaMatriculadoAction' />
+	<action name='delete_registroCuotaMatriculado' class='DeleteRegistroCuotaMatriculadoAction' />
+
+	<action name='pagar_registroCuotaMatriculado_init' class='PagarRegistroCuotaMatriculadoInitAction' />
+	<action name='pagar_registroCuotaMatriculado' class='PagarRegistroCuotaMatriculadoAction' />
+	<forward name='pagar_registroCuotaMatriculado_error' url='doAction?action=registroCuotaMatriculado_error' />
+	
+	<action name='masiva_registrosCuotaMatriculado' class='MasivaRegistrosCuotaMatriculadoAction'
+		currentMenuGroup='9' />
+	
+	<!-- conceptos -->
+
+	<action name='list_conceptos' class='ListConceptosAction'
+		currentMenuGroup='10' />
+
+	<action name='add_concepto' class='AddConceptoAction' />
+	<action name='add_concepto_init' class='AddConceptoInitAction'
+		currentMenuGroup='10' />
+	<action name='add_concepto_popup_init' class='AddConceptoPopupInitAction' />
+	<action name='update_concepto' class='UpdateConceptoAction' />
+	<action name='update_concepto_init' class='UpdateConceptoInitAction'
+		currentMenuGroup='10' />
+	<action name='view_concepto' class='ViewConceptoAction' />
+	<action name='delete_concepto' class='DeleteConceptoAction' />
+
+	<forward name='add_concepto_success' url='doAction?action=list_conceptos' />
+	<forward name='add_concepto_error' url='doAction?action=add_concepto_init' />
+	<forward name='update_concepto_success' url='doAction?action=list_conceptos' />
+	<forward name='update_concepto_error' url='doAction?action=list_conceptos' />
+	<forward name='delete_concepto_success' url='doAction?action=list_conceptos' />
+	<forward name='delete_concepto_error' url='doAction?action=list_conceptos' />
+	<forward name='list_concepto_error' url='doAction?action=list_conceptos' />
+	
+	<!-- incumbencias -->
+
+	<action name='list_incumbencias' class='ListIncumbenciasAction'
+		currentMenuGroup='9' />
+
+	<action name='add_incumbencia' class='AddIncumbenciaAction' />
+	<action name='add_incumbencia_init' class='AddIncumbenciaInitAction'
+		currentMenuGroup='9' />
+
+	<action name='update_incumbencia' class='UpdateIncumbenciaAction' />
+	<action name='update_incumbencia_init' class='UpdateIncumbenciaInitAction'
+		currentMenuGroup='9' />
+
+	<action name='add_incumbencia_popup_init' class='AddIncumbenciaPopupInitAction' />
+
+	<action name='view_incumbencia' class='ViewIncumbenciaAction' />
+	<action name='delete_incumbencia' class='DeleteIncumbenciaAction' />
+
+	<forward name='add_incumbencia_success' url='doAction?action=list_incumbencias' />
+	<forward name='add_incumbencia_error' url='doAction?action=add_incumbencia_init' />
+	<forward name='update_incumbencia_success' url='doAction?action=list_incumbencias' />
+	<forward name='update_incumbencia_error' url='doAction?action=list_incumbencias' />
+	<forward name='delete_incumbencia_success' url='doAction?action=list_incumbencias' />
+	<forward name='delete_incumbencia_error' url='doAction?action=list_incumbencias' />
+	<forward name='list_incumbencia_error' url='doAction?action=list_incumbencias' />
+	
+	<!-- incumbencias tiposTitulo -->
+
+	<action name='list_incumbenciasTiposTitulo' class='ListIncumbenciasTiposTituloAction'
+		currentMenuGroup='9' />
+
+	<action name='add_incumbenciaTipoTitulo' class='AddIncumbenciaTipoTituloAction' />
+	<action name='add_incumbenciaTipoTitulo_init' class='AddIncumbenciaTipoTituloInitAction'
+		currentMenuGroup='9' />
+
+	<action name='update_incumbenciaTipoTitulo' class='UpdateIncumbenciaTipoTituloAction' />
+	<action name='update_incumbenciaTipoTitulo_init' class='UpdateIncumbenciaTipoTituloInitAction'
+		currentMenuGroup='9' />
+
+	<action name='add_incumbenciaTipoTitulo_popup_init' class='AddIncumbenciaTipoTituloPopupInitAction' />
+
+	<action name='view_incumbenciaTipoTitulo' class='ViewIncumbenciaTipoTituloAction' />
+	<action name='delete_incumbenciaTipoTitulo' class='DeleteIncumbenciaTipoTituloAction' />
+
+	<forward name='add_incumbenciaTipoTitulo_success' url='doAction?action=list_incumbenciasTiposTitulo' />
+	<forward name='add_incumbenciaTipoTitulo_error' url='doAction?action=add_incumbenciaTipoTitulo_init' />
+	<forward name='update_incumbenciaTipoTitulo_success' url='doAction?action=list_incumbenciasTiposTitulo' />
+	<forward name='update_incumbenciaTipoTitulo_error' url='doAction?action=list_incumbenciasTiposTitulo' />
+	<forward name='delete_incumbenciaTipoTitulo_success' url='doAction?action=list_incumbenciasTiposTitulo' />
+	<forward name='delete_incumbenciaTipoTitulo_error' url='doAction?action=list_incumbenciasTiposTitulo' />
+	<forward name='list_incumbenciaTipoTitulo_error' url='doAction?action=list_incumbenciasTiposTitulo' />
+	
+	<!-- tiposEncomienda -->
+
+	<action name='list_tiposEncomienda' class='ListTiposEncomiendaAction'
+		currentMenuGroup='9' />
+
+	<action name='add_tipoEncomienda' class='AddTipoEncomiendaAction' />
+	<action name='add_tipoEncomienda_init' class='AddTipoEncomiendaInitAction'
+		currentMenuGroup='9' />
+
+	<action name='update_tipoEncomienda' class='UpdateTipoEncomiendaAction' />
+	<action name='update_tipoEncomienda_init' class='UpdateTipoEncomiendaInitAction'
+		currentMenuGroup='9' />
+
+	<action name='add_tipoEncomienda_popup_init' class='AddTipoEncomiendaPopupInitAction' />
+
+	<action name='view_tipoEncomienda' class='ViewTipoEncomiendaAction' />
+	<action name='delete_tipoEncomienda' class='DeleteTipoEncomiendaAction' />
+
+	<forward name='add_tipoEncomienda_success' url='doAction?action=list_tiposEncomienda' />
+	<forward name='add_tipoEncomienda_error' url='doAction?action=add_tipoEncomienda_init' />
+	<forward name='update_tipoEncomienda_success' url='doAction?action=list_tiposEncomienda' />
+	<forward name='update_tipoEncomienda_error' url='doAction?action=list_tiposEncomienda' />
+	<forward name='delete_tipoEncomienda_success' url='doAction?action=list_tiposEncomienda' />
+	<forward name='delete_tipoEncomienda_error' url='doAction?action=list_tiposEncomienda' />
+	<forward name='list_tipoEncomienda_error' url='doAction?action=list_tiposEncomienda' />
+	
+	<!-- incumbencias tiposEncomienda -->
+
+	<action name='list_incumbenciasTiposEncomienda' class='ListIncumbenciasTiposEncomiendaAction'
+		currentMenuGroup='9' />
+
+	<action name='add_incumbenciaTipoEncomienda' class='AddIncumbenciaTipoEncomiendaAction' />
+	<action name='add_incumbenciaTipoEncomienda_init' class='AddIncumbenciaTipoEncomiendaInitAction'
+		currentMenuGroup='9' />
+
+	<action name='update_incumbenciaTipoEncomienda' class='UpdateIncumbenciaTipoEncomiendaAction' />
+	<action name='update_incumbenciaTipoEncomienda_init' class='UpdateIncumbenciaTipoEncomiendaInitAction'
+		currentMenuGroup='9' />
+
+	<action name='add_incumbenciaTipoEncomienda_popup_init' class='AddIncumbenciaTipoEncomiendaPopupInitAction' />
+
+	<action name='view_incumbenciaTipoEncomienda' class='ViewIncumbenciaTipoEncomiendaAction' />
+	<action name='delete_incumbenciaTipoEncomienda' class='DeleteIncumbenciaTipoEncomiendaAction' />
+
+	<forward name='add_incumbenciaTipoEncomienda_success' url='doAction?action=list_incumbenciasTiposEncomienda' />
+	<forward name='add_incumbenciaTipoEncomienda_error' url='doAction?action=add_incumbenciaTipoEncomienda_init' />
+	<forward name='update_incumbenciaTipoEncomienda_success' url='doAction?action=list_incumbenciasTiposEncomienda' />
+	<forward name='update_incumbenciaTipoEncomienda_error' url='doAction?action=list_incumbenciasTiposEncomienda' />
+	<forward name='delete_incumbenciaTipoEncomienda_success' url='doAction?action=list_incumbenciasTiposEncomienda' />
+	<forward name='delete_incumbenciaTipoEncomienda_error' url='doAction?action=list_incumbenciasTiposEncomienda' />
+	<forward name='list_incumbenciaTipoEncomienda_error' url='doAction?action=list_incumbenciasTiposEncomienda' />
+	
+	<!-- tipos de estados de encomienda  -->
+
+	<action name='list_tiposEstadoEncomienda' class='ListTiposEstadoEncomiendaAction'
+		currentMenuGroup='10' />
+
+	<action name='add_tipoEstadoEncomienda' class='AddTipoEstadoEncomiendaAction'
+		currentMenuGroup='10' />
+	<action name='add_tipoEstadoEncomienda_init' class='AddTipoEstadoEncomiendaInitAction'
+		currentMenuGroup='10' />
+	<action name='update_tipoEstadoEncomienda' class='UpdateTipoEstadoEncomiendaAction' />
+	<action name='update_tipoEstadoEncomienda_init' class='UpdateTipoEstadoEncomiendaInitAction'
+		currentMenuGroup='10' />
+	<action name='view_tipoEstadoEncomienda' class='ViewTipoEstadoEncomiendaAction' />
+	<action name='delete_tipoEstadoEncomienda' class='DeleteTipoEstadoEncomiendaAction' />
+
+	<forward name='add_tipoEstadoEncomienda_success' url='doAction?action=list_tiposEstadoEncomienda' />
+	<forward name='add_tipoEstadoEncomienda_error' url='doAction?action=add_tipoEstadoEncomienda_init' />
+	<forward name='update_tipoEstadoEncomienda_success' url='doAction?action=list_tiposEstadoEncomienda' />
+	<forward name='update_tipoEstadoEncomienda_error' url='doAction?action=list_tiposEstadoEncomienda' />
+	<forward name='delete_tipoEstadoEncomienda_success' url='doAction?action=list_tiposEstadoEncomienda' />
+	<forward name='delete_tipoEstadoEncomienda_error' url='doAction?action=list_tiposEstadoEncomienda' />
+	<forward name='list_tipoEstadoEncomienda_error' url='doAction?action=list_tiposEstadoEncomienda' />
+	
+	<!-- Encomiendas -->
+
+	<action name='list_encomiendas' class='ListEncomiendasAction'
+		currentMenuGroup='9' />
+
+	<action name='add_encomienda' class='AddEncomiendaAction' />
+	<action name='add_encomienda_init' class='AddEncomiendaInitAction'
+		currentMenuGroup='9' />
+	<action name='add_encomienda_chequear' class='AddEncomiendaChequearAction' />
+	<action name='add_encomienda_chequear_tipo_comitente' class='AddEncomiendaChequearTipoComitenteAction' />
+
+	<action name='add_encomienda_profesional_session' class='AddEncomiendaProfesionalSessionAction' />
+	<action name='delete_encomienda_profesional_session' class='DeleteEncomiendaProfesionalSessionAction' />
+	
+	<action name='add_encomienda_registro_session' class='AddEncomiendaRegistroSessionAction' />
+	<action name='delete_encomienda_registro_session' class='DeleteEncomiendaRegistroSessionAction' />
+
+	<action name='add_encomienda_especialidad_session' class='AddEncomiendaEspecialidadSessionAction' />
+	<action name='delete_encomienda_especialidad_session' class='DeleteEncomiendaEspecialidadSessionAction' />
+
+	<action name='update_encomienda' class='UpdateEncomiendaAction' />
+	<action name='update_encomienda_init' class='UpdateEncomiendaInitAction'
+		currentMenuGroup='9' />
+
+	<action name='add_encomienda_popup_init' class='AddEncomiendaPopupInitAction' />
+
+	<action name='view_encomienda' class='ViewEncomiendaAction' />
+	<action name='delete_encomienda' class='DeleteEncomiendaAction' />
+
+	<forward name='add_encomienda_success' url='doAction?action=list_encomiendas' />
+	<forward name='add_encomienda_error' url='doAction?action=add_encomienda_init' />
+	<forward name='update_encomienda_success' url='doAction?action=list_encomiendas' />
+	<forward name='update_encomienda_error' url='doAction?action=list_encomiendas' />
+	<forward name='delete_encomienda_success' url='doAction?action=list_encomiendas' />
+	<forward name='delete_encomienda_error' url='doAction?action=list_encomiendas' />
+	<forward name='list_encomienda_error' url='doAction?action=list_encomiendas' />
+	
+	<action name='test_qrcode' class='TestQRAction' />
+	<action name='certificado_encomienda_pdf' class='CertificadoEncomiendaPDFAction' />
+	<action name='cambiarEstadoEncomienda_init' class='CambiarEstadoEncomiendaInitAction'
+		currentMenuGroup='9' />
+	<action name='cambiarEstadoEncomienda' class='CambiarEstadoEncomiendaAction' />
+	<action name='pagarEncomienda_init' class='PagarEncomiendaInitAction'
+		currentMenuGroup='9' />
+	<action name='pagarEncomienda' class='PagarEncomiendaAction' />
+	
+	<action name='pagarEncomienda_chequear_tipo_pago' class='PagarEncomiendaChequearTipoPagoAction' />
+	<!-- encomiendas observaciones -->
+
+	<action name='list_encomiendasObservacion' class='ListEncomiendasObservacionAction'
+		currentMenuGroup='9' />
+
+	<action name='add_encomiendaObservacion' class='AddEncomiendaObservacionAction' />
+	<action name='add_encomiendaObservacion_init' class='AddEncomiendaObservacionInitAction'
+		currentMenuGroup='9' />
+
+	<action name='update_encomiendaObservacion' class='UpdateEncomiendaObservacionAction' />
+	<action name='update_encomiendaObservacion_init' class='UpdateEncomiendaObservacionInitAction'
+		currentMenuGroup='9' />
+
+	<action name='add_encomiendaObservacion_popup_init' class='AddEncomiendaObservacionPopupInitAction' />
+
+	<action name='view_encomiendaObservacion' class='ViewEncomiendaObservacionAction' />
+	<action name='delete_encomiendaObservacion' class='DeleteEncomiendaObservacionAction' />
+
+	<forward name='add_encomiendaObservacion_success' url='doAction?action=list_encomiendasObservacion' />
+	<forward name='add_encomiendaObservacion_error' url='doAction?action=add_encomiendaObservacion_init' />
+	<forward name='update_encomiendaObservacion_success' url='doAction?action=list_encomiendasObservacion' />
+	<forward name='update_encomiendaObservacion_error' url='doAction?action=list_encomiendasObservacion' />
+	<forward name='delete_encomiendaObservacion_success' url='doAction?action=list_encomiendasObservacion' />
+	<forward name='delete_encomiendaObservacion_error' url='doAction?action=list_encomiendasObservacion' />
+	<forward name='list_encomiendaObservacion_error' url='doAction?action=list_encomiendasObservacion' />
+	
+	<!-- historicos estados -->
+
+	<action name='list_historicosEstado' class='ListHistoricosEstadoAction'
+		currentMenuGroup='9' />
+
+	<action name='cambiarEstadoMatriculado_init' class='CambiarEstadoMatriculadoInitAction'
+		currentMenuGroup='9' />
+	<action name='cambiarEstadoMatriculado' class='CambiarEstadoMatriculadoAction' />
+	
+	<!-- movimientos ctacte-->
+
+	<action name='list_movCtaCtes' class='ListMovCtaCtesAction'
+		currentMenuGroup='2' />
+
+	<!-- movimientos ctacte-->
+
+	<action name='list_movCajas' class='ListMovCajasAction'
+		currentMenuGroup='2' />
+	<action name='add_movCaja' class='AddMovCajaAction' />
+	<action name='add_movCaja_init' class='AddMovCajaInitAction'
+		currentMenuGroup='2' />
+	<action name='view_movCaja' class='ViewMovCajaAction' />
+	<action name='delete_movCaja' class='DeleteMovCajaAction' />
+	
+	<!-- incumbencias registros -->
+
+	<action name='list_incumbenciasRegistro' class='ListIncumbenciasRegistroAction'
+		currentMenuGroup='9' />
+
+	<action name='add_incumbenciaRegistro' class='AddIncumbenciaRegistroAction' />
+	<action name='add_incumbenciaRegistro_init' class='AddIncumbenciaRegistroInitAction'
+		currentMenuGroup='9' />
+
+	<action name='update_incumbenciaRegistro' class='UpdateIncumbenciaRegistroAction' />
+	<action name='update_incumbenciaRegistro_init' class='UpdateIncumbenciaRegistroInitAction'
+		currentMenuGroup='9' />
+
+	<action name='add_incumbenciaRegistro_popup_init' class='AddIncumbenciaRegistroPopupInitAction' />
+
+	<action name='view_incumbenciaRegistro' class='ViewIncumbenciaRegistroAction' />
+	<action name='delete_incumbenciaRegistro' class='DeleteIncumbenciaRegistroAction' />
+</navegation>
